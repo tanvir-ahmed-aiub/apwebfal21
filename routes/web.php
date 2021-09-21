@@ -12,9 +12,8 @@ use App\Http\Controllers\PagesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PagesController::class,'home'])->name('home');
+
 Route::get('/contact/public',[PagesController::class,'contact'])->name('contact');
 Route::get('/profile',[PagesController::class,'myprofile'])->name('profile');
 

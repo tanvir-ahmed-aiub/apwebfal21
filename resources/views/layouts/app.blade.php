@@ -6,12 +6,9 @@
     <body>
         <a class="btn btn-primary" href="{{route('contact')}}">Contact</a>
         <a class="btn btn-success" href="{{route('profile')}}">My Profile</a>
-        <h1>My Profile</h1>
-        <h3>{{$id}}</h3>
-        <table>
-            @foreach($names as $n)
-            <tr><td>{{$n}}</td></tr> 
-            @endforeach
-        </table>
+        <a class="btn btn-danger" href="{{route('home')}}"> Home </a>
+        <div>
+            @yield('content')
+        </div>
     </body>
 </html>
