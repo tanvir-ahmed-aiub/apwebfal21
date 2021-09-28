@@ -64,8 +64,11 @@ class StudentController extends Controller
         return view('pages.students.list')->with('students',$students);
     }
     public function edit(Request $request){
+        //
         $id = $request->id;
+        //$student = Student::where('id',$id)->get(); //for multiple values : return array
         $student = Student::where('id',$id)->first();
+        //$student = Student::where('id','>',$id)->first();//default operator =
         return $student;
 
     }
