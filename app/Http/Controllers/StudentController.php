@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -38,10 +39,19 @@ class StudentController extends Controller
             ]
         );
 
+        $var = new Student();
+        $var->name= $request->name;
+        $var->s_id = $request->id;
+        $var->email = $request->email;
+        $var->phone=$request->phone;
+        $var->dob = $request->dob;
+        $var->save();
+
+
         return "OK";      
     }
     public function list(){
-        $students = array();
+        /*$students = array();
         for($i=0;$i<10;$i++){
             $student=array(
                 "name"=>"Student ".($i+1),
@@ -49,11 +59,14 @@ class StudentController extends Controller
                 "dob" =>"12.12.12"
             );
             $students[] = (object)$student;
-        }
+        }*/
+        $students = Student::all();
         return view('pages.students.list')->with('students',$students);
     }
     public function edit(Request $request){
-        return $request->id;
+        $id = $request->id;
+        $student = Student::where('id',$id)->first();
+        return $student;
 
     }
 
