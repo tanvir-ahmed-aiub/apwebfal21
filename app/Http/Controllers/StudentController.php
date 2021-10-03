@@ -69,8 +69,20 @@ class StudentController extends Controller
         //$student = Student::where('id',$id)->get(); //for multiple values : return array
         $student = Student::where('id',$id)->first();
         //$student = Student::where('id','>',$id)->first();//default operator =
-        return $student;
+        return view('pages.students.edit')->with('student',$student);
 
     }
+    public function editSubmit(Request $request){
+        $var = Student::where('id',$request->id)->first();
+        $var->name= $request->name;
+        $var->s_id = $request->s_id;
+        $var->email = $request->email;
+        $var->phone=$request->phone;
+        $var->dob = $request->dob;
+        $var->save();
+        return redirect()->route('student.list');
+
+    }
+    
 
 }

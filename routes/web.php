@@ -25,7 +25,7 @@ Route::get('/student/create',[StudentController::class,'create'])->name('student
 Route::post('/student/create',[StudentController::class,'createSubmit'])->name('student.create');
 Route::get('/student/list',[StudentController::class,'list'])->name('student.list');
 Route::get('/student/edit/{id}/{name}',[StudentController::class,'edit']);
-
+Route::post('/student/edit',[StudentController::class,'editSubmit'])->name('student.edit');
 Route::get('/teacher/create',[TeacherController::class,'create'])->name('teacher.create');
 Route::post('/teacher/create',[TeacherController::class,'createSubmit'])->name('teacher.create');
 Route::get('/teacher/list',[TeacherController::class,'list'])->name('teacher.list');

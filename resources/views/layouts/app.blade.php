@@ -6,6 +6,9 @@
     <body>
         @include('inc.topnav')
         <div>
+            @yield('test')
+        </div>
+        <div>
             @yield('content')
         </div>
     </body>
